@@ -35,3 +35,19 @@ images 와 labels 에는 jpg, json 파일이 500개씩 들어있습니다.
 그렇기 때문에 상대 위치인 `x_min`, `y_min` 또한 상단 왼쪽 모서리를 `(0,0)`, 하단 오른쪽 모서리를 `(1,1)`로 지정하고 비율을 계산한 값입니다.
 
 하단 오른쪽 좌표인 `x_max`, `y_max`는 각각 `x_min` 값에 `width`, `y_min` 값에 `height`를 더한것 입니다.
+
+
+코드는 이미지의 사이즈를 640*640 으로 줄이고 이에 대한 좌표값도 계산하는 코드입니다.
+코드를 실행하고 나면 다음과 같이 기존의 json 파일에 변환된 좌표값이 추가됩니다.
+
+![image](https://github.com/jeongin7103/Bounding-boxes/assets/127823391/0b98d24c-1365-48e1-9508-99c167955c90)
+
+### 예시 결과
+
+![스크린샷 2023-09-29 오전 12 27 20](https://github.com/jeongin7103/Bounding-boxes/assets/127823391/547ca82c-2cbf-4383-9873-65c3ab1eb828)
+
+![스크린샷 2023-09-29 오전 12 27 32](https://github.com/jeongin7103/Bounding-boxes/assets/127823391/f335cd32-9ab5-453b-8dae-912875022eb5)
+
+
+
+
