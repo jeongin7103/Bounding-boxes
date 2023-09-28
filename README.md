@@ -13,7 +13,7 @@ Codes for convert the coordinates of bounding box
 ```
 images 와 labels 에는 jpg, json 파일이 500개씩 들어있습니다.
 
-기존 json 파일에 들어있는 좌표는 `W, H, x_min, y_min` 값이 상대좌표로 들어있었습니다. 
+기존 json 파일에 들어있는 좌표는 `W, H, C_x, C_y` 값이 상대좌표로 들어있었습니다. 
 
 예시:
 
@@ -24,9 +24,9 @@ images 와 labels 에는 jpg, json 파일이 500개씩 들어있습니다.
 ![image](https://github.com/jeongin7103/Bounding-boxes/assets/127823391/aae6d2aa-ea12-47ad-8a39-192e657d0469)
 
 
-상대좌표는 fractional form 이라고도 하는데, 일반적으로 `(x_min, y_min, width, height)` 형식으로 표현됩니다. 
+상대좌표는 fractional form 이라고도 하는데, 일반적으로 `(c_x, c_y, width, height)` 형식으로 표현됩니다. 
 
-여기서 `x_min`, `y_min`은 bounding box의 상단 왼쪽 모서리의 상대적인 위치를 나타내고, 
+여기서 `c_x`, `c_y`은 bounding box의 상대적인 중심 좌표를 의미하고, 
 
 `width`와 `height`는 bounding box의 상대적인 너비와 높이를 나타냅니다. 
 
@@ -34,10 +34,13 @@ images 와 labels 에는 jpg, json 파일이 500개씩 들어있습니다.
 
 그렇기 때문에 상대 위치인 `x_min`, `y_min` 또한 상단 왼쪽 모서리를 `(0,0)`, 하단 오른쪽 모서리를 `(1,1)`로 지정하고 비율을 계산한 값입니다.
 
-하단 오른쪽 좌표인 `x_max`, `y_max`는 각각 `x_min` 값에 `width`, `y_min` 값에 `height`를 더한것 입니다.
+하단 오른쪽 좌표인 `x_max`, `y_max`는 각각 `c_x` 값에 `width/2`, `c_y` 값에 `height/2`를 더한 것 입니다.
+
+상단 왼쪽 좌표인 `x_min`, `y_min`는 각각 `c_x` 값에 `width/2`, `c_y` 값에 `height/2`를 뺀 것 입니다.
 
 
-코드는 이미지의 사이즈를 640*640 으로 줄이고 이에 대한 좌표값도 계산하는 코드입니다.
+
+코드는 이미지의 사이즈를 640*640 으로 줄이고 이에 대한 좌표값도 계산하는 코드입니다. 
 코드를 실행하고 나면 다음과 같이 기존의 json 파일에 변환된 좌표값이 추가됩니다.
 
 ![image](https://github.com/jeongin7103/Bounding-boxes/assets/127823391/0b98d24c-1365-48e1-9508-99c167955c90)
