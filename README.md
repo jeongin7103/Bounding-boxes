@@ -26,7 +26,7 @@ images 와 labels 에는 jpg, json 파일이 500개씩 들어있습니다.
 
 상대좌표는 fractional form 이라고도 하는데, 일반적으로 `(c_x, c_y, width, height)` 형식으로 표현됩니다. 
 
-여기서 `c_x`, `c_y`은 bounding box의 상대적인 중심 좌표를 의미하고, 
+여기서 `c_x`, `c_y`은 bounding box의 상대적인 중심 좌표를 의미하고, 
 
 `width`와 `height`는 bounding box의 상대적인 너비와 높이를 나타냅니다. 
 
